@@ -4,11 +4,5 @@
   "question": "Exploit the ThinkPHP 5 routing flaw to run a command on the server.",
   "category": "WEB",
   "difficulty": 2,
-  "evidence_kind": "SECRET",
-  "capabilities": [
-    "remote-code-execution",
-    "insecure-routing",
-    "php",
-    "thinkphp"
-  ]
+  "evidence_kind": "SECRET"
 }
