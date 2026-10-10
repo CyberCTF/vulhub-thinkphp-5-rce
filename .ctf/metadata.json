@@ -1,7 +1,7 @@
 {
   "title": "ThinkPHP 5 Remote Code Execution",
   "description": "A ThinkPHP 5.0.20 application, vulnerable to the ThinkPHP 5 routing RCE (5.0.22 and 5.1.29 fixed it): without forced routing, the controller name in the URL can name any class with its namespace, and call its methods with request parameters.",
-  "question": "Exploit the ThinkPHP 5 routing flaw to run a command on the server.",
+  "question": "Exploit the ThinkPHP 5 routing flaw to run a command on the server and read /ctf/flag.",
   "category": "WEB",
   "difficulty": 2,
   "evidence_kind": "SECRET"

@@ -1,0 +1,66 @@
+{
+  "objectives": [
+    {
+      "key": "main",
+      "title": "Read the flag",
+      "prompt": "Use the routing flaw to call a class of your choosing, run a command and read /ctf/flag.",
+      "check": {
+        "evidence": "SECRET",
+        "format": "FLAG{%s}"
+      },
+      "dev": "FLAG{dev-vulhub-thinkphp-5-rce}",
+      "hints": [
+        "Without forced routing, the s parameter picks the module, controller and action. Read how ThinkPHP 5.0.20 validates the controller name.",
+        "The flag is at /ctf/flag."
+      ],
+      "steps": [
+        {
+          "key": "version",
+          "title": "Identify the framework",
+          "prompt": "Which PHP framework, and which version, serves the site? (name and version)",
+          "check": {
+            "answer_regex": "(?i)thinkphp\\s*5\\.0\\.20"
+          }
+        },
+        {
+          "key": "parameter",
+          "title": "Find the parameter",
+          "prompt": "Which query parameter names the module, controller and action? (parameter name)",
+          "check": {
+            "answer": [
+              "s"
+            ]
+          }
+        },
+        {
+          "key": "flaw",
+          "title": "Name the flaw",
+          "prompt": "What is missing from the validation of the controller name that lets it reach any class?",
+          "check": {
+            "answer": [
+              "namespace check",
+              "namespace filtering",
+              "namespace validation",
+              "filtering of the namespace",
+              "backslash filtering",
+              "controller name validation"
+            ]
+          }
+        },
+        {
+          "key": "outcome",
+          "title": "Name the outcome",
+          "prompt": "What does the flaw give an attacker? (two words)",
+          "check": {
+            "answer": [
+              "code execution",
+              "remote code execution",
+              "rce",
+              "command execution"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
